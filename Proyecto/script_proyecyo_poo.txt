@@ -1,0 +1,37 @@
+﻿create sequence tb_seccion_seccion_codigo_seq
+;
+
+create sequence tb_estudiante_estudiante_codigo_seq
+;
+
+create table tb_seccion
+(
+	seccion_codigo integer default nextval('tb_seccion_seccion_codigo_seq'::regclass) not null
+		constraint pk_tb_seccion_seccion_codigo
+			primary key,
+	seccion_nombre varchar(80) not null,
+	seccion_fechacreacion date default ('now'::text)::date,
+	seccion_fechamodificacion date
+)
+;
+
+create table tb_estudiante
+(
+	estudiante_codigo integer default nextval('tb_estudiante_estudiante_codigo_seq'::regclass) not null
+		constraint pk_tb_estudiante_estudiante_codigo
+			primary key,
+	estudiante_nombrecompleto varchar(255) not null,
+	estudiante_documento varchar(25)
+		constraint uq_tb_estudiante_estudiante_documento
+			unique,
+	estudiante_edad bigint not null,
+	estudiante_fechanacimiento date,
+	estudiante_promedio double precision,
+	estudiante_imagenurl text,
+	seccion_codigo integer
+		constraint fk_tb_estudiante_seccion_codigo
+			references tb_seccion,
+	estudiante_fechacreacion date default ('now'::text)::date,
+	estudiante_fechamodificacion date
+)
+;
