@@ -1,0 +1,30 @@
+img.imagen_estudiante{
+    width: 50px;
+}
+
+body{
+    padding-top: 70px;
+    padding-bottom: 80px;
+}
+
+footer{
+    background-color: #EEE;
+    border-top: 10px solid #BBB;
+    font-size: 14px;
+    padding: 20px;
+    text-align: center;
+}
+
+.box-principal{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.titulo{
+    text-align: center;
+}
+
+p.alertaFormulario{
+    text-align: center;
+}
